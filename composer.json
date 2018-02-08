@@ -1,0 +1,14 @@
+{
+    "name": "troublete/functional-collection",
+    "description": "A function collection to be used across multiple use-cases",
+    "type": "library",
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "Willi Eßer",
+            "email": "willi.esser@troublete.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
