@@ -1,6 +1,6 @@
 {
     "name": "troublete/functional-collection",
-    "description": "A function collection to be used across multiple use-cases",
+    "description": "Small functional multi-purpose collection",
     "type": "library",
     "license": "GPL-2.0-only",
     "authors": [
@@ -12,10 +12,15 @@
     "minimum-stability": "stable",
     "autoload": {
         "files": [
-            "./collection.php"
-        ]
+            "./functions.php"
+        ],
+        "psr-4": {
+            "TryPhp\\": "./"
+        }
     },
-    "require": {},
+    "require": {
+        "php": ">=7.1"
+    },
     "require-dev": {
         "try/tapping": "^0.1.1"
     },
