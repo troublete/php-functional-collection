@@ -7,7 +7,7 @@ class FunctionalCollection
      * collection to entries
      * @var array
      */
-    public $values;
+    private $values;
 
     public function __construct(array $values = [])
     {
@@ -21,6 +21,12 @@ class FunctionalCollection
      */
     public function of(...$values): FunctionalCollection
     {
+        foreach ($values as &$singleValue) {
+            if (!is_scalar($singleValue) || is_array($singleValue)) {
+                throw new \TypeError('Only scalar values and no arrays can be provided as seperate values.');
+            }
+        }
+
         $instance = new self();
         $instance->values = $values;
         return $instance;
@@ -47,13 +53,13 @@ class FunctionalCollection
      */
     public function filter(callable $predicate): FunctionalCollection
     {
-        $clone = clone $this;
-        foreach ($clone->values as &$entry) {
+        $values = $this->extract();
+        foreach ($values as $key => &$entry) {
             if (!$predicate($entry)) {
-                unset($entry);
+                unset($values[$key]);
             }
         }
-        return $clone;
+        return new self(array_values($values));
     }
 
     /**
@@ -122,8 +128,8 @@ class FunctionalCollection
             if ($func !== null) {
                 $return = $func($entry);
             }
-            if (!is_scalar($return)) {
-                throw new TypeError('Return value is not scalar, and can therefore not be combined.');
+            if (!is_scalar($return) && !is_array($return)) {
+                throw new \TypeError('Return value is not scalar, and can therefore not be combined.');
             }
             if (is_string($return)) {
                 $accumulator .= $return;
@@ -135,6 +141,9 @@ class FunctionalCollection
             }
             if (is_array($return)) {
                 $accumulator = array_merge([], (array) $accumulator, $return);
+            }
+            if (is_bool($return)) {
+                $accumulator = $accumulator && $return;
             }
         }
         return $accumulator;
