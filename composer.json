@@ -10,5 +10,16 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "autoload": {
+        "files": [
+            "./collection.php"
+        ]
+    },
+    "require": {},
+    "require-dev": {
+        "try/tapping": "^0.1.1"
+    },
+    "scripts": {
+        "test": "@php test.php -b"
+    }
 }
