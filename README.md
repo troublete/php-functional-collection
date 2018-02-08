@@ -1,4 +1,4 @@
 # Function Collection
-> functional setup method which returns a functional collection which can be used to replicate functional patterns
+> Small functional multi-purpose collection
 
 ## SOON
