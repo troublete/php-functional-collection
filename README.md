@@ -1,6 +1,8 @@
 # Function Collection
 > Small functional multi-purpose collection
 
+[![Build Status](https://travis-ci.org/troublete/functional-collection.svg?branch=master)](https://travis-ci.org/troublete/functional-collection)
+
 ### Usage
 
 ```
