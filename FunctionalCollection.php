@@ -53,7 +53,7 @@ class FunctionalCollection
                 unset($currentValueSet[$key]);
             }
         }
-        return new self(array_currentValueSet($values));
+        return new self(array_values($currentValueSet));
     }
 
     /**
