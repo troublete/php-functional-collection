@@ -2,7 +2,9 @@
 > Small functional multi-purpose collection
 
 [![Build Status](https://travis-ci.org/troublete/functional-collection.svg?branch=master)](https://travis-ci.org/troublete/functional-collection)
-[![Technical dept](https://sonarcloud.io/api/badges/measure?key=functional-collection-library&metric=sqale_debt_ratio)](https://sonarcloud.io/dashboard/index/functional-collection-library)
+[![Technical dept](https://sonarcloud.io/api/project_badges/measure?project=functional-collection-library&metric=sqale_index)](https://sonarcloud.io/dashboard/index/functional-collection-library)
+[![Reliability](https://sonarcloud.io/api/project_badges/measure?project=functional-collection-library&metric=reliability_rating)](https://sonarcloud.io/dashboard/index/functional-collection-library)
+
 
 ### Insall
 
