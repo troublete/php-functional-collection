@@ -47,13 +47,13 @@ class FunctionalCollection
      */
     public function filter(callable $predicate): FunctionalCollection
     {
-        $values = $this->extract();
-        foreach ($values as $key => &$entry) {
+        $currentValueSet = $this->extract();
+        foreach ($currentValueSet as $key => &$entry) {
             if (!$predicate($entry)) {
-                unset($values[$key]);
+                unset($currentValueSet[$key]);
             }
         }
-        return new self(array_values($values));
+        return new self(array_currentValueSet($values));
     }
 
     /**
