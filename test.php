@@ -12,16 +12,6 @@ test('Setting some scalar values with `of` should create a immutable collection 
     $t->is($values->getValue($collection) == [1,2,1], true);
 });
 
-test('Setting some non-scalar values or an array to `of` should throw an error.', function ($t) {
-    $t->predictException(function () {
-        collection()->of([]);
-    }, \TypeError::class);
-
-    $t->predictException(function () {
-        collection()->of(new stdClass());
-    }, \TypeError::class);
-});
-
 test('Running `map` should mutable change the values of the collection.', function ($t) {
     $collection = collection([1,2,3])->map(function ($val) {
         return $val ** 2;

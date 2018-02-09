@@ -21,12 +21,6 @@ class FunctionalCollection
      */
     public function of(...$values): FunctionalCollection
     {
-        foreach ($values as &$singleValue) {
-            if (!is_scalar($singleValue) || is_array($singleValue)) {
-                throw new \TypeError('Only scalar values and no arrays can be provided as seperate values.');
-            }
-        }
-
         $instance = new self();
         $instance->values = $values;
         return $instance;
